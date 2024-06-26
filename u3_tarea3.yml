@@ -1,0 +1,36 @@
+name: Build, Package, and Release
+
+on:
+    push:
+        branches:
+        - main
+        tags:
+            '*'
+    schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up dependencies
+        run: pws ./setup.ps1
+
+      - name: Lint the code
+        run: make lint
+
+      - name: Build the project
+        run: make build
+
+      - name: Run unit tests
+        run: make unit-tests
+
+      - name: Validate the project
+        run: make validate the project
+
+      - name: Run integration tests
+        run: make integration-tests
