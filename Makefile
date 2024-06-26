@@ -18,3 +18,15 @@ package:
 	@echo "Packaging awesome-website..."
 	zip -r awesome-website.zip awesome-api dist
 
+lint:
+	@echo "Running linters..."
+	markdownlint README.md DEPLOY.md
+
+unit-tests:
+	@echo "Running tests..."
+
+validate:
+	@echo "Validating the project..."
+
+integration-tests:
+	@echo "Running integration tests..."
